@@ -13,9 +13,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
-import { User, UserRole } from './supply';
-import { UserCardComponent } from './supply-card.component';
-import { UserService } from './user.service';
+import { SupplyCardComponent } from './supply-card.component';
+import { SupplyService } from './supply.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 /**
@@ -49,16 +48,17 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
     MatIconModule,
   ],
 })
-export class UserListComponent {
+export class SupplyListComponent {
   // userService the `UserService` used to get users from the server
-  private userService = inject(UserService);
+  private supplyService = inject(SupplyService);
   // snackBar the `MatSnackBar` used to display feedback
   private snackBar = inject(MatSnackBar);
 
-  userName = signal<string | undefined>(undefined);
-  userAge = signal<number | undefined>(undefined);
-  userRole = signal<UserRole | undefined>(undefined);
-  userCompany = signal<string | undefined>(undefined);
+  supplyDescription = signal<string | undefined>(undefined);
+  supplyQuantity = signal<number | undefined>(undefined);
+  supplyItem = signal<string | undefined>(undefined);
+  supplySchool = signal<string | undefined>(undefined);
+  supplyGrade = signal<string | undefined>(undefined);
 
   viewType = signal<'card' | 'list'>('card');
 
@@ -70,26 +70,26 @@ export class UserListComponent {
   // text fields change we want to re-run the filtering. That means we have to convert both
   // of those _signals_ to _observables_ using `toObservable()`. Those are then used in the
   // definition of `serverFilteredUsers` below to trigger updates to the `Observable` there.
-  private userRole$ = toObservable(this.userRole);
-  private userAge$ = toObservable(this.userAge);
+  private supplyItem$ = toObservable(this.supplyItem);
+  private supplyQuantity$ = toObservable(this.supplyQuantity);
 
   // We ultimately `toSignal` this to be able to access it synchronously, but we do all the RXJS operations
   // "inside" the `toSignal()` call processing and transforming the observables there.
-  serverFilteredUsers =
+  serverFilteredSupplies =
     // This `combineLatest` call takes the most recent values from these two observables (both built from
     // signals as described above) and passes them into the following `.pipe()` call. If either of the
     // `userRole` or `userAge` signals change (because their text fields get updated), then that will trigger
     // the corresponding `userRole$` and/or `userAge$` observables to change, which will cause `combineLatest()`
     // to send a new pair down the pipe.
     toSignal(
-      combineLatest([this.userRole$, this.userAge$]).pipe(
+      combineLatest([this.supplyItem$, this.supplyQuantity$]).pipe(
         // `switchMap` maps from one observable to another. In this case, we're taking `role` and `age` and passing
         // them as arguments to `userService.getUsers()`, which then returns a new observable that contains the
         // results.
-        switchMap(([role, age]) =>
-          this.userService.getUsers({
-            role,
-            age,
+        switchMap(([item, quantity]) =>
+          this.supplyService.getSupplies({
+            item,
+            quantity,
           })
         ),
         // `catchError` is used to handle errors that might occur in the pipeline. In this case `userService.getUsers()`
@@ -103,7 +103,7 @@ export class UserListComponent {
           }
           this.snackBar.open(this.errMsg(), 'OK', { duration: 6000 });
           // `catchError` needs to return the same type. `of` makes an observable of the same type, and makes the array still empty
-          return of<User[]>([]);
+          return of<Supply[]>([]);
         }),
         // Tap allows you to perform side effects if necessary
         tap(() => {
@@ -123,11 +123,11 @@ export class UserListComponent {
   // the new value of the computed signal.
   // In this case, whenever `serverFilteredUsers` changes (e.g., because we change `userName`), then `filteredUsers`
   // will be updated by rerunning the function we're passing to `computed()`.
-  filteredUsers = computed(() => {
-    const serverFilteredUsers = this.serverFilteredUsers();
-    return this.userService.filterUsers(serverFilteredUsers, {
-      name: this.userName(),
-      company: this.userCompany(),
+  filteredSupplies = computed(() => {
+    const serverFilteredSupplies = this.serverFilteredSupplies();
+    return this.supplyService.filterSupplies(serverFilteredSupplies, {
+      description: this.supplyDescription),
+      school: this.supplySchool(),
     });
   });
 }
