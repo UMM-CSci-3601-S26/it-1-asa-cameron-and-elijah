@@ -4,16 +4,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
-import { User } from './supply';
+import { Supply } from './supply';
 
 @Component({
-  selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
-  styleUrls: ['./user-card.component.scss'],
+  selector: 'app-supply-card',
+  templateUrl: './supply-card.component.html',
+  styleUrls: ['./supply-card.component.scss'],
   imports: [MatCardModule, MatButtonModule, MatListModule, MatIconModule, RouterLink]
 })
-export class UserCardComponent {
+export class SupplyCardComponent {
 
-  user = input.required<User>();
+  supply = input.required<Supply>();
   simple = input(false);
 }

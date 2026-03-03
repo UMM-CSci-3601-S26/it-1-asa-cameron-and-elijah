@@ -60,7 +60,7 @@
       <!-- Card grid view -->
       @case ('card') {
       <div class="supply-cards-container flex-row gap-8 flex-wrap">
-        @for (supply of filteredSupplies(); track supply.description) {
+        @for (supply of filteredSupplies(); track supply._id) {
         <app-supply-card [simple]="true" class="supply-card" [supply]="supply"></app-supply-card>
         }
       </div>
@@ -71,8 +71,8 @@
         <mat-card-content>
           <mat-nav-list class="supply-nav-list">
             <h3 mat-subheader>Supplies</h3>
-            @for (supply of filteredSupplies(); track supply.description) {
-            <a mat-list-item [routerLink]="['/supplies', supply.description]" class="supply-list-item">
+            @for (supply of filteredSupplies(); track supply._id) {
+            <a mat-list-item [routerLink]="['/supplies', supply._id]" class="supply-list-item">
               <span matListItemTitle mat-line class="supply-list-name"> {{supply.description}} </span>
               <span matListItemLine class="supply-list-item"> {{supply.item}} </span>
             </a>

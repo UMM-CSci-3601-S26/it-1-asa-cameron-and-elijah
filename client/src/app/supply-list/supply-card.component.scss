@@ -7,12 +7,12 @@
   }
 }
 
-// Capitalize the user role when displaying it in the user card.
-.user-card-role {
+// Capitalize the supply role when displaying it in the supply card.
+.supply-card-role {
   text-transform: capitalize;
 }
 
-.user-card-email {
+.supply-card-email {
   display: block; /* Make it a block-level element */
   color: inherit; /* Inherit the text color from the parent element */
   text-decoration: none; /* Remove default underline */

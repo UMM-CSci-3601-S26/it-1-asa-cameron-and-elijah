@@ -28,9 +28,9 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
  * makes the most sense to do the filtering.
  */
 @Component({
-  selector: 'app-user-list-component',
-  templateUrl: 'user-list.component.html',
-  styleUrls: ['./user-list.component.scss'],
+  selector: 'app-supply-list-component',
+  templateUrl: 'supply-list.component.html',
+  styleUrls: ['./supply-list.component.scss'],
   providers: [],
   imports: [
     MatCardModule,
@@ -40,7 +40,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
     MatSelectModule,
     MatOptionModule,
     MatRadioModule,
-    UserCardComponent,
+    SupplyCardComponent,
     MatListModule,
     RouterLink,
     MatButtonModule,

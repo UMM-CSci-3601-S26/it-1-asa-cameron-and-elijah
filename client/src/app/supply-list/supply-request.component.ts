@@ -21,7 +21,7 @@ export class SupplyProfileComponent {
   user: Signal<Supply> = toSignal(
     this.route.paramMap.pipe(
       // Map the paramMap into the id
-      map((paramMap: ParamMap) => paramMap.get('description')),
+      map((paramMap: ParamMap) => paramMap.get('id')),
       // Maps the `id` string into the Observable<User>,
       // which will emit zero or one values depending on whether there is a
       // `User` with that ID.
