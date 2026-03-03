@@ -1,0 +1,106 @@
+<div class="flex-row">
+  <div class="flex-1">
+
+    <mat-card class="search-card">
+      <mat-card-header>
+        <mat-card-title class="inventory-list-title">Inventory</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <div class="flex-row gap-8 flex-wrap">
+          <!-- Examples of filtering in Angular -->
+
+          <mat-form-field class="input-field">
+          <mat-label>Description</mat-label>
+            <!-- As opposed to the RXJS version `[ngModel]="userName$ | async" (ngModelChange)="userName$.next($event)" -->
+            <!-- Signals are their own getter and setter if left uninvoked like that -->
+            <!-- The [()] syntax is saying 'Do both the getting and setting with the respective get/set of the signal' -->
+            <input matInput data-test="inventoryDescriptionInput" placeholder="Filter by description" [(ngModel)]="inventoryDescription">
+            <mat-hint>Filtered on client</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="input-field">
+            <mat-label>School</mat-label>
+            <input matInput data-test="inventorySchoolInput" placeholder="Filter by school" [(ngModel)]="inventorySchool">
+            <mat-hint>Filtered on client</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="flex-row gap-8 flex-wrap">
+          <!-- Examples of filtering on the server -->
+
+          <mat-form-field class="input-field">
+            <mat-label>Quantity</mat-label>
+            <input matInput data-test="inventoryQuantityInput" type="number" placeholder="Filter by quantity" min="0"
+              [(ngModel)]="inventoryQuantity">
+            <mat-hint>Filtered on server</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <br>
+        <div class="flex-row gap-8 flex-wrap">
+          <label for="viewType">View type: </label>
+          <mat-radio-group aria-label="View type" [(ngModel)]="viewType" data-test="viewTypeRadio">
+            <mat-radio-button value="card">Card</mat-radio-button>
+            <mat-radio-button value="list">List</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="flex-row">
+  @if (serverFilteredSupplies()) {
+  <div class="flex-1">
+    <!-- Switch between card and list view based on the viewType variable, set above in the mar-radio-group -->
+    <div>
+      @switch (viewType()) {
+      <!-- Card grid view -->
+      @case ('card') {
+      <div class="inventory-cards-container flex-row gap-8 flex-wrap">
+        @for (inventory of filteredSupplies(); track inventory._id) {
+        <app-inventory-card [simple]="true" class="inventory-card" [inventory]="inventory"></app-inventory-card>
+        }
+      </div>
+      }
+      <!-- List view -->
+      @case ('list') {
+      <mat-card>
+        <mat-card-content>
+          <mat-nav-list class="inventory-nav-list">
+            <h3 mat-subheader>Supplies</h3>
+            @for (inventory of filteredSupplies(); track inventory._id) {
+            <a mat-list-item [routerLink]="['/supplies', inventory._id]" class="inventory-list-item">
+              <span matListItemTitle mat-line class="inventory-list-name"> {{inventory.description}} </span>
+              <span matListItemLine class="inventory-list-item"> {{inventory.item}} </span>
+            </a>
+            }
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+      }
+      }
+    </div>
+  </div>
+  } @else {
+  <div class="flex-1" class="inventory-error">
+    <mat-error>
+      There was a problem loading the inventory requests. Possibly the server is down or perhaps there are network
+      issues.
+    </mat-error>
+    <mat-error>
+      Please wait a bit and try again or start the server.
+    </mat-error>
+  </div>
+  }
+
+  <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
+
+</div>
+
+<button mat-fab class="add-inventory-fab" matTooltip="Add Inventory" matTooltipPosition="left" routerLink="/supplies/new"
+  data-test="addInventoryButton">
+  <mat-icon class="md-24" aria-label="Add Inventory">add</mat-icon>
+</button>

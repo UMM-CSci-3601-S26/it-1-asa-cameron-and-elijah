@@ -2,30 +2,30 @@ import { Component, signal, inject, Signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { SupplyCardComponent } from './supply-card.component';
-import { SupplyService } from './supply.service';
+import { InventoryCardComponent } from './inventory-card.component';
+import { InventoryService } from './inventory.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { of } from 'rxjs';
-import { Supply } from './supply';
+import { Inventory } from './inventory';
 
 @Component({
-  selector: 'app-supply-request',
-  templateUrl: './supply-request.component.html',
-  styleUrls: ['./supply-request.component.scss'],
-  imports: [SupplyCardComponent, MatCardModule],
+  selector: 'app-inventory-request',
+  templateUrl: './inventory-view.component.html',
+  styleUrls: ['./inventory-view.component.scss'],
+  imports: [InventoryCardComponent, MatCardModule],
 })
-export class SupplyProfileComponent {
+export class InventoryProfileComponent {
   private route = inject(ActivatedRoute);
-  private supplyService = inject(SupplyService);
+  private inventoryService = inject(InventoryService);
 
-  user: Signal<Supply> = toSignal(
+  user: Signal<Inventory> = toSignal(
     this.route.paramMap.pipe(
       // Map the paramMap into the id
       map((paramMap: ParamMap) => paramMap.get('id')),
       // Maps the `id` string into the Observable<User>,
       // which will emit zero or one values depending on whether there is a
       // `User` with that ID.
-      switchMap((id: string) => this.supplyService.getSupplyById(id)),
+      switchMap((id: string) => this.inventoryService.getInventoryById(id)),
       catchError((_err) => {
         this.error.set({
           help: 'There was a problem loading the user – try again.',

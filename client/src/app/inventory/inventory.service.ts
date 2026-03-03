@@ -3,7 +3,6 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Company } from '../company-list/company';
 
 /**
  * Service that provides the interfaclient/src/app/users/user-profile.component.html client/src/app/users/user-profile.component.scss client/src/app/users/user-profile.component.spec.ts client/src/app/users/user-profile.component.tsce for getting information
@@ -12,7 +11,7 @@ import { Company } from '../company-list/company';
 @Injectable({
   providedIn: 'root'
 })
-export class SupplyService {
+export class InventoryService {
   // The private `HttpClient` is *injected* into the service
   // by the Angular framework. This allows the system to create
   // only one `HttpClient` and share that across all services
@@ -23,13 +22,11 @@ export class SupplyService {
   private httpClient = inject(HttpClient);
 
   // The URL for the users part of the server API.
-  readonly supplyUrl: string = `${environment.apiUrl}supplies`;
-  readonly suppliesBySchoolUrl: string = `${environment.apiUrl}suppliesBySchool`;
+  readonly inventoryUrl: string = `${environment.apiUrl}inventories`;
 
   private readonly itemKey = 'item';
   private readonly quantityKey = 'quantity';
-  private readonly schoolKey = 'school';
-  private readonly gradeKey = 'grade'
+  private readonly propertiesKey = 'properties'
 
   /**
    * Get all the users from the server, filtered by the information
@@ -48,7 +45,7 @@ export class SupplyService {
    *  from the server after a possibly substantial delay (because we're
    *  contacting a remote server over the Internet).
    */
-  getUsers(filters?: { item?: string; quantity?: number; school?: string; grade?: string }): Observable<Supply[]> {
+  getUsers(filters?: { item?: string; quantity?: number; properties?: string }): Observable<Inventory[]> {
     // `HttpParams` is essentially just a map used to hold key-value
     // pairs that are then encoded as "?key1=value1&key2=value2&…" in
     // the URL when we make the call to `.get()` below.
@@ -60,16 +57,13 @@ export class SupplyService {
       if (filters.quantity) {
         httpParams = httpParams.set(this.quantityKey, filters.quantity.toString());
       }
-      if (filters.school) {
-        httpParams = httpParams.set(this.schoolKey, filters.school);
-      }
-      if (filters.grade) {
-        httpParams = httpParams.set(this.gradeKey, filters.grade);
+      if (filters.properties) {
+        httpParams = httpParams.set(this.propertiesKey, filters.properties);
       }
     }
     // Send the HTTP GET request with the given URL and parameters.
     // That will return the desired `Observable<User[]>`.
-    return this.httpClient.get<Supply[]>(this.supplyUrl, {
+    return this.httpClient.get<Inventory[]>(this.inventoryUrl, {
       params: httpParams,
     });
   }
@@ -80,9 +74,9 @@ export class SupplyService {
    * @param id the ID of the desired user
    * @returns an `Observable` containing the resulting user.
    */
-  getSupplyByDescription(description: string): Observable<Supply> {
+  getInventoryByDescription(item: string): Observable<Inventory> {
     // The input to get could also be written as (this.userUrl + '/' + id)
-    return this.httpClient.get<Supply>(`${this.supplyUrl}/${description}`);
+    return this.httpClient.get<Inventory>(`${this.inventoryUrl}/${item}`);
   }
 
   /**
@@ -94,35 +88,25 @@ export class SupplyService {
    * partial matches instead of waiting until we have a full string
    * to match against.
    *
-   * @param supplies the array of `Users` that we're filtering
+   * @param inventories the array of `Users` that we're filtering
    * @param filters the map of key-value pairs used for the filtering
    * @returns an array of `Users` matching the given filters
    */
-  filterSupplies(supplies: Supply[], filters: { description?: string; school?: string }): Supply[] { // skipcq: JS-0105
-    let filteredSupplies = supplies;
+  filterInventories(inventories: Inventory[], filters: { item?: string; properties?: string }): Inventory[] { // skipcq: JS-0105
+    let filteredInventories = inventories;
 
     // Filter by name
-    if (filters.description) {
-      filters.description = filters.description.toLowerCase();
-      filteredSupplies = filteredSupplies.filter(supply => supply.description.toLowerCase().indexOf(filters.description) !== -1);
+    if (filters.item) {
+      filters.item = filters.item.toLowerCase();
+      filteredInventories = filteredInventories.filter(inventory => inventory.item.toLowerCase().indexOf(filters.item) !== -1);
     }
 
     // Filter by company
-    if (filters.school) {
-      filters.school = filters.school.toLowerCase();
-      filteredSupplies = filteredSupplies.filter(supply => supply.school.toLowerCase().indexOf(filters.school) !== -1);
-    }
-
-    return filteredSupplies;
   }
 
-  getSchool(): Observable<School[]> {
-    return this.httpClient.get<School[]>(`${this.suppliesBySchoolUrl}`);
-  }
-
-  addUser(newUser: Partial<Supply>): Observable<string> {
+  addUser(newInventory: Partial<Inventory>): Observable<string> {
     // Send post request to add a new user with the user data as the body.
     // `res.id` should be the MongoDB ID of the newly added `User`.
-    return this.httpClient.post<{description: string}>(this.supplyUrl, newSupply).pipe(map(response => response.description));
+    return this.httpClient.post<{item: string}>(this.inventoryUrl, newInventory).pipe(map(response => response.item));
   }
 }

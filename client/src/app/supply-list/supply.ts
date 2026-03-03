@@ -1,4 +1,5 @@
 export interface Supply {
+  _id: string;
   school: string;
   grade: string;
   description: string;
