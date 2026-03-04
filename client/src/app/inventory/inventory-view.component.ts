@@ -14,11 +14,11 @@ import { Inventory } from './inventory';
   styleUrls: ['./inventory-view.component.scss'],
   imports: [InventoryCardComponent, MatCardModule],
 })
-export class InventoryProfileComponent {
+export class InventoryViewComponent {
   private route = inject(ActivatedRoute);
   private inventoryService = inject(InventoryService);
 
-  user: Signal<Inventory> = toSignal(
+  inventory: Signal<Inventory> = toSignal(
     this.route.paramMap.pipe(
       // Map the paramMap into the id
       map((paramMap: ParamMap) => paramMap.get('id')),

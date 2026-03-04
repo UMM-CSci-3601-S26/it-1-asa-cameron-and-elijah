@@ -1,3 +1,4 @@
+import {Inventory} from './inventory'
 import { Component, computed, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -124,7 +125,8 @@ export class InventoryListComponent {
   filteredInventories = computed(() => {
     const serverFilteredInventories = this.serverFilteredInventories();
     return this.inventoryService.filterInventories(serverFilteredInventories, {
-      item: this.inventoryItem),
+      item: this.inventoryItem(),
+      properties: this.inventoryProperties(),
     });
   });
 }

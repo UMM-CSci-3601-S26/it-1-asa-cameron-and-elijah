@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Inventory } from './inventory';
 
 /**
  * Service that provides the interfaclient/src/app/users/user-profile.component.html client/src/app/users/user-profile.component.scss client/src/app/users/user-profile.component.spec.ts client/src/app/users/user-profile.component.tsce for getting information
@@ -24,9 +25,9 @@ export class InventoryService {
   // The URL for the users part of the server API.
   readonly inventoryUrl: string = `${environment.apiUrl}inventories`;
 
-  private readonly itemKey = 'item';
-  private readonly quantityKey = 'quantity';
-  private readonly propertiesKey = 'properties'
+  private readonly ITEM_KEY = 'item';
+  private readonly QUANTITY_KEY = 'quantity';
+  private readonly  PROPERTIES_KEY = 'properties';
 
   /**
    * Get all the users from the server, filtered by the information
@@ -52,13 +53,13 @@ export class InventoryService {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.item) {
-        httpParams = httpParams.set(this.itemKey, filters.item);
+        httpParams = httpParams.set(this.ITEM_KEY, filters.item);
       }
       if (filters.quantity) {
-        httpParams = httpParams.set(this.quantityKey, filters.quantity.toString());
+        httpParams = httpParams.set(this.QUANTITY_KEY, filters.quantity.toString());
       }
       if (filters.properties) {
-        httpParams = httpParams.set(this.propertiesKey, filters.properties);
+        httpParams = httpParams.set(this.PROPERTIES_KEY, filters.properties);
       }
     }
     // Send the HTTP GET request with the given URL and parameters.
@@ -74,6 +75,10 @@ export class InventoryService {
    * @param id the ID of the desired user
    * @returns an `Observable` containing the resulting user.
    */
+  getInventoryById(id: string): Observable<Inventory> {
+    // The input to get could also be written as (this.userUrl + '/' + id)
+    return this.httpClient.get<Inventory>(`${this.inventoryUrl}/${id}`);
+  }
   getInventoryByDescription(item: string): Observable<Inventory> {
     // The input to get could also be written as (this.userUrl + '/' + id)
     return this.httpClient.get<Inventory>(`${this.inventoryUrl}/${item}`);
@@ -92,7 +97,7 @@ export class InventoryService {
    * @param filters the map of key-value pairs used for the filtering
    * @returns an array of `Users` matching the given filters
    */
-  filterInventories(inventories: Inventory[], filters: { item?: string; properties?: string }): Inventory[] { // skipcq: JS-0105
+  filterInventories(inventories: Inventory[], filters: { item?: string; properties?: string}): Inventory[] { // skipcq: JS-0105
     let filteredInventories = inventories;
 
     // Filter by name
@@ -100,11 +105,15 @@ export class InventoryService {
       filters.item = filters.item.toLowerCase();
       filteredInventories = filteredInventories.filter(inventory => inventory.item.toLowerCase().indexOf(filters.item) !== -1);
     }
+    if (filters.properties) {
+      filters.properties = filters.properties.toLowerCase();
+      filteredInventories = filteredInventories.filter(inventory => inventory.properties.toLowerCase().indexOf(filters.properties) !== -1);
+    }
 
-    // Filter by company
+    return filteredInventories;
   }
 
-  addUser(newInventory: Partial<Inventory>): Observable<string> {
+  addInventory(newInventory: Partial<Inventory>): Observable<string> {
     // Send post request to add a new user with the user data as the body.
     // `res.id` should be the MongoDB ID of the newly added `User`.
     return this.httpClient.post<{item: string}>(this.inventoryUrl, newInventory).pipe(map(response => response.item));

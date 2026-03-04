@@ -14,11 +14,11 @@ import { Supply } from './supply';
   styleUrls: ['./supply-request.component.scss'],
   imports: [SupplyCardComponent, MatCardModule],
 })
-export class SupplyProfileComponent {
+export class SupplyRequestComponent {
   private route = inject(ActivatedRoute);
   private supplyService = inject(SupplyService);
 
-  user: Signal<Supply> = toSignal(
+  supply: Signal<Supply> = toSignal(
     this.route.paramMap.pipe(
       // Map the paramMap into the id
       map((paramMap: ParamMap) => paramMap.get('id')),

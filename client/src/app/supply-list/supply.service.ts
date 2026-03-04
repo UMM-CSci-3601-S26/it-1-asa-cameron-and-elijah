@@ -3,8 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Company } from '../company-list/company';
-
+import {Supply} from './supply'
 /**
  * Service that provides the interfaclient/src/app/users/user-profile.component.html client/src/app/users/user-profile.component.scss client/src/app/users/user-profile.component.spec.ts client/src/app/users/user-profile.component.tsce for getting information
  * about `Users` from the server.
@@ -26,10 +25,11 @@ export class SupplyService {
   readonly supplyUrl: string = `${environment.apiUrl}supplies`;
   readonly suppliesBySchoolUrl: string = `${environment.apiUrl}suppliesBySchool`;
 
-  private readonly itemKey = 'item';
-  private readonly quantityKey = 'quantity';
-  private readonly schoolKey = 'school';
-  private readonly gradeKey = 'grade'
+
+  private readonly ITEM_KEY = 'item';
+  private readonly QUANTITY_KEY = 'quantity';
+  private readonly SCHOOL_KEY = 'school';
+  private readonly GARDE_KEY = 'grade'
 
   /**
    * Get all the users from the server, filtered by the information
@@ -55,16 +55,16 @@ export class SupplyService {
     let httpParams: HttpParams = new HttpParams();
     if (filters) {
       if (filters.item) {
-        httpParams = httpParams.set(this.itemKey, filters.item);
+        httpParams = httpParams.set(this.ITEM_KEY, filters.item);
       }
       if (filters.quantity) {
-        httpParams = httpParams.set(this.quantityKey, filters.quantity.toString());
+        httpParams = httpParams.set(this.QUANTITY_KEY, filters.quantity.toString());
       }
       if (filters.school) {
-        httpParams = httpParams.set(this.schoolKey, filters.school);
+        httpParams = httpParams.set(this.SCHOOL_KEY, filters.school);
       }
       if (filters.grade) {
-        httpParams = httpParams.set(this.gradeKey, filters.grade);
+        httpParams = httpParams.set(this.GARDE_KEY, filters.grade);
       }
     }
     // Send the HTTP GET request with the given URL and parameters.
@@ -80,6 +80,10 @@ export class SupplyService {
    * @param id the ID of the desired user
    * @returns an `Observable` containing the resulting user.
    */
+  getSupplyById(id: string): Observable<Supply> {
+    // The input to get could also be written as (this.userUrl + '/' + id)
+    return this.httpClient.get<Supply>(`${this.supplyUrl}/${id}`);
+  }
   getSupplyByDescription(description: string): Observable<Supply> {
     // The input to get could also be written as (this.userUrl + '/' + id)
     return this.httpClient.get<Supply>(`${this.supplyUrl}/${description}`);
@@ -116,11 +120,7 @@ export class SupplyService {
     return filteredSupplies;
   }
 
-  getSchool(): Observable<School[]> {
-    return this.httpClient.get<School[]>(`${this.suppliesBySchoolUrl}`);
-  }
-
-  addUser(newUser: Partial<Supply>): Observable<string> {
+  addSupply(newSupply: Partial<Supply>): Observable<string> {
     // Send post request to add a new user with the user data as the body.
     // `res.id` should be the MongoDB ID of the newly added `User`.
     return this.httpClient.post<{description: string}>(this.supplyUrl, newSupply).pipe(map(response => response.description));

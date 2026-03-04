@@ -14,6 +14,6 @@ import { Inventory } from './inventory';
 })
 export class InventoryCardComponent {
 
-  supply = input.required<Inventory>();
+  inventory = input.required<Inventory>();
   simple = input(false);
 }

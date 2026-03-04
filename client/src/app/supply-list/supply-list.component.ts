@@ -16,6 +16,7 @@ import { catchError, combineLatest, of, switchMap, tap } from 'rxjs';
 import { SupplyCardComponent } from './supply-card.component';
 import { SupplyService } from './supply.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { Supply } from './supply';
 
 /**
  * A component that displays a list of users, either as a grid
@@ -126,7 +127,7 @@ export class SupplyListComponent {
   filteredSupplies = computed(() => {
     const serverFilteredSupplies = this.serverFilteredSupplies();
     return this.supplyService.filterSupplies(serverFilteredSupplies, {
-      description: this.supplyDescription),
+      description: this.supplyDescription(),
       school: this.supplySchool(),
     });
   });

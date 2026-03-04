@@ -5,7 +5,11 @@ import { AddUserComponent } from './users/add-user.component';
 import { UserListComponent } from './users/user-list.component';
 import { UserProfileComponent } from './users/user-profile.component';
 import { CompanyListComponent } from './company-list/company-list.component';
-import { SupplyListComponent } from './supply-list/supply-list.component'
+import { SupplyListComponent } from './supply-list/supply-list.component';
+import { SupplyRequestComponent } from './supply-list/supply-request.component';
+import { InventoryListComponent } from './inventory/inventory-list.component';
+import { InventoryViewComponent } from './inventory/inventory-view.component';
+
 
 // Note that the 'users/new' route needs to come before 'users/:id'.
 // If 'users/:id' came first, it would accidentally catch requests to
@@ -16,7 +20,10 @@ const routes: Routes = [
   {path: 'users/new', component: AddUserComponent, title: 'Add User'},
   {path: 'users/:id', component: UserProfileComponent, title: 'User Profile'},
   {path: 'companies', component: CompanyListComponent, title: 'Companies'},
-  {path 'supplies', component: SupplyListComponent, title: 'Supplies'}
+  {path: 'supplies', component: SupplyListComponent, title: 'Supplies'},
+  {path: 'supplies/:id', component: SupplyRequestComponent, title: 'Supply View'},
+  {path: 'inventories', component: InventoryListComponent, title: 'Inventories'},
+  {path: 'inventories/:id', component: InventoryViewComponent, title: 'Inventory View'},
 ];
 
 @NgModule({
