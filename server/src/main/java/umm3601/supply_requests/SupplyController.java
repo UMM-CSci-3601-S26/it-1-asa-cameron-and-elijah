@@ -44,8 +44,6 @@ public class SupplyController implements Controller {
   static final String PROPERTIES_KEY = "properties";
   static final String QUANTITY_KEY = "quantity";
 
-
-
   private final JacksonMongoCollection<Supply> supplyCollection;
 
   /**
