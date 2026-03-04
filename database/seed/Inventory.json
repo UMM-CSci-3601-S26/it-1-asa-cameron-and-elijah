@@ -1,567 +1,62 @@
 [
-    {
-        "item": "Pencil",
-        "properties": "[\"#2\", \"sharpened\", \"yellow\", \"Ticonderoga\", \"not mechanical\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Colored Pencils",
-        "properties": "[\"24 count or 36 count\", \"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Colored Pencils",
-        "properties": "[\"12 count\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Colored Pencils",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"red\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"blue\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"yellow\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"green\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"purple\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"plastic\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"red\", \"plastic\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"blue\", \"plastic\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Folder",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"red\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"blue\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"green\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"purple\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"yellow\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\", \"yellow\", \"college ruled\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"spiral bound\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"wide ruled\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"wide ruled\", \"70 sheets\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"wide ruled\", \"spiral bound\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"wide ruled\", \"composition notebook\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Notebook",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Scissors",
-        "properties": "[\"7 inch\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Scissors",
-        "properties": "[\"Fiskars\", \"student\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Scissors",
-        "properties": "[\"Fiskars\", \"blunt tip\", \"kid\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Scissors",
-        "properties": "[\"child\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Scissors",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Crayons",
-        "properties": "[\"24 count\",  \"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Crayons",
-        "properties": "[ \"16 count\", \"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Crayons",
-        "properties": "[\"24 count\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Crayons",
-        "properties": "[\"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Crayons",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Markers",
-        "properties": "[\"8 count\", \"washable\", \"broad line\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Markers",
-        "properties": "[\"Crayola\", \"broad line\", \"washable\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Markers",
-        "properties": "[\"10 count\", \"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Markers",
-        "properties": "[\"Crayola\", \"washable\", \"broad line\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Markers",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Dry Erase Markers",
-        "properties": "[\"black\", \"Expo\", \"fine\", \"fine tip\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Dry Erase Markers",
-        "properties": "[\"black\", \"Expo\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Dry Erase Markers",
-        "properties": "[\"black\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Dry Erase Markers",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pens",
-        "properties": "[\"black\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pens",
-        "properties": "[\"blue\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pens",
-        "properties": "[\"red\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Highlighter",
-        "properties": "[\"yellow\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Highlighter",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil Box",
-        "properties": "[\"regular size\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil Box",
-        "properties": "[\"plastic\", \"regular size\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil Box",
-        "properties": "[\"plastic\", \"labeled\", \"regular size\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil Box",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Watercolors",
-        "properties": "[\"washable\", \"8 color\", \"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Watercolors",
-        "properties": "[\"Crayola\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Watercolors",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Glue stick",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Glue bottle",
-        "properties": "[\"Elmer's\", \"white\", \"4 ounce\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Glue bottle",
-        "properties": "[\"white\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Glue bottle",
-        "properties": "[\"Elmer's\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Glue bottle",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Ruler",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Binder",
-        "properties": "[\"3-ring\", \"1 inch\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Binder",
-        "properties": "[\"white\", \"3-ring\", \"1 inch\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Binder",
-        "properties": "[\"3-ring\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Sharpie",
-        "properties": "[\"black\", \"Sharpie\", \"permanent\", \"marker\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Pencil Eraser",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "White board Eraser",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Index Cards",
-        "properties": "[\"3x5\", \"100 count\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Post-it notes",
-        "properties": "[\"standard\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Loose Leaf Paper",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Box of Tissues",
-        "properties": "[\"Kleenex\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Box of Tissues",
-        "properties": "[\"Kleenex\", \"large\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Disinfecting Wipes",
-        "properties": "[\"Clorox\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Disinfecting Wipes",
-        "properties": "[\"85 count\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Page protector",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Headphones",
-        "properties": "[\"good quality\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Headphones",
-        "properties": "[\"good quality\", \"not Bluetooth compatible\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Headphones",
-        "properties": "[\"not earbuds\", \"not Bluetooth compatible\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Headphones",
-        "properties": "[\"not earbuds\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Headphones",
-        "properties": "[\"not wireless\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Tennis Shoes",
-        "properties": "[\"not crocs\", \"not hey dudes\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Tennis Shoes",
-        "properties": "[\"Velcro\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Computer mouse",
-        "properties": "[\"wireless\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Computer mouse",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Ziploc bags",
-        "properties": "[\"zipper closure\", \"quart\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Ziploc bags",
-        "properties": "[\"zipper closure\", \"gallon\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Ziploc bags",
-        "properties": "[\"zipper closure\", \"snack\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Planner",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Sketchbook",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Book Bag",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Plates",
-        "properties": "[\"large\", \"paper\", \"55 count\", \"dinner\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Plates",
-        "properties": "[\"large\", \"paper\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Plates",
-        "properties": "[\"small\", \"paper\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Plates",
-        "properties": "[\"9 inch\", \"paper\", \"uncoated\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Plates",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Plastic Cups",
-        "properties": "[\"54 count\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Plastic Cups",
-        "properties": "[\"7-9 ounces\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Plastic Cups",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Plastic Spoons",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Plastic Forks",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Printer Labels",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Box of Crackers",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Paper Towels",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Brown Lunch Bags",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Styrofoam Coffee Cups",
-        "properties": "[\"styrofoam\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Papper Bowls",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Blanket",
-        "properties": "[\"small\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Water Bottle",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Napkins",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Cardstock",
-        "properties": "[\"Any\", \"other\"]",
-        "quantity": 0
-    },
-    {
-        "item": "Calculator",
-        "properties": "[\"Square root key and exponent key\"]",
-        "quantity": 0
-    }
+  {
+    "_id": "69a744b360b0dac919a69030",
+    "item": "Pencil",
+    "properties": "[\"Any\", \"other\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69031",
+    "item": "Folder",
+    "properties": "[\"green\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69032",
+    "item": "Colored Pencils",
+    "properties": "[\"24 count or 36 count\", \"Crayola\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69033",
+    "item": "Folder",
+    "properties": "[\"red\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69034",
+    "item": "Pencil",
+    "properties": "[\"#2\", \"sharpened\", \"yellow\", \"Ticonderoga\", \"not mechanical\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69035",
+    "item": "Colored Pencils",
+    "properties": "[\"Any\", \"other\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69036",
+    "item": "Folder",
+    "properties": "[\"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69037",
+    "item": "Folder",
+    "properties": "[\"red\", \"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69038",
+    "item": "Folder",
+    "properties": "[\"blue\", \"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69039",
+    "item": "Notebook",
+    "properties": "[\"spiral bound\", \"red\"]",
+    "quantity": 0
+  }
 ]
