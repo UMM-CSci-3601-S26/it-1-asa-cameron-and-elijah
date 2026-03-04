@@ -41,7 +41,7 @@ public class SupplyController implements Controller {
   static final String GRADE_KEY = "grade";
   static final String DESCRIPTION_KEY = "description";
   static final String PROPERTIES_KEY = "properties";
-  static final Number QUANTITY_KEY = "quantity"
+  static final Number QUANTITY_KEY = "quantity";
 
   private final JacksonMongoCollection<Supply> userCollection;
 
