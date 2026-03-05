@@ -1,0 +1,32 @@
+<div class="flex-row">
+  <div class="flex-1">
+    @if (supply()) {
+    <app-supply-card [supply]="supply()"></app-supply-card>
+    } @else if (error().help !== '') {
+    <mat-card class="error-card">
+      <mat-card-content>
+        <h2>
+          {{ error().help }}
+        </h2>
+        <p>
+          {{ error().message }}
+        </p>
+        <p>
+          {{ error().httpResponse }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button color="primary" mat-raised-button routerLink="/supplies">
+          Back to Supplies List
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    } @else {
+    <mat-card>
+      <mat-card-content>
+        <p>Loading Supply Request Profile data...</p>
+      </mat-card-content>
+    </mat-card>
+    }
+  </div>
+</div>

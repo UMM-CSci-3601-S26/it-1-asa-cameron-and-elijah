@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "69a744b360b0dac919a69030",
+    "item": "Pencil",
+    "properties": "[\"Any\", \"other\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69031",
+    "item": "Folder",
+    "properties": "[\"green\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69032",
+    "item": "Colored Pencils",
+    "properties": "[\"24 count or 36 count\", \"Crayola\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69033",
+    "item": "Folder",
+    "properties": "[\"red\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69034",
+    "item": "Pencil",
+    "properties": "[\"#2\", \"sharpened\", \"yellow\", \"Ticonderoga\", \"not mechanical\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69035",
+    "item": "Colored Pencils",
+    "properties": "[\"Any\", \"other\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69036",
+    "item": "Folder",
+    "properties": "[\"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69037",
+    "item": "Folder",
+    "properties": "[\"red\", \"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69038",
+    "item": "Folder",
+    "properties": "[\"blue\", \"plastic\"]",
+    "quantity": 0
+  },
+  {
+    "_id": "69a744b360b0dac919a69039",
+    "item": "Notebook",
+    "properties": "[\"spiral bound\", \"red\"]",
+    "quantity": 0
+  }
+]

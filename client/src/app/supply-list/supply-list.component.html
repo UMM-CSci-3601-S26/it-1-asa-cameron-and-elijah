@@ -1,0 +1,106 @@
+<div class="flex-row">
+  <div class="flex-1">
+
+    <mat-card class="search-card">
+      <mat-card-header>
+        <mat-card-title class="supply-list-title">Supply</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <div class="flex-row gap-8 flex-wrap">
+          <!-- Examples of filtering in Angular -->
+
+          <mat-form-field class="input-field">
+          <mat-label>Description</mat-label>
+            <!-- As opposed to the RXJS version `[ngModel]="userName$ | async" (ngModelChange)="userName$.next($event)" -->
+            <!-- Signals are their own getter and setter if left uninvoked like that -->
+            <!-- The [()] syntax is saying 'Do both the getting and setting with the respective get/set of the signal' -->
+            <input matInput data-test="supplyDescriptionInput" placeholder="Filter by description" [(ngModel)]="supplyDescription">
+            <mat-hint>Filtered on client</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field class="input-field">
+            <mat-label>School</mat-label>
+            <input matInput data-test="supplySchoolInput" placeholder="Filter by school" [(ngModel)]="supplySchool">
+            <mat-hint>Filtered on client</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="flex-row gap-8 flex-wrap">
+          <!-- Examples of filtering on the server -->
+
+          <mat-form-field class="input-field">
+            <mat-label>Quantity</mat-label>
+            <input matInput data-test="supplyQuantityInput" type="number" placeholder="Filter by quantity" min="0"
+              [(ngModel)]="supplyQuantity">
+            <mat-hint>Filtered on server</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <br>
+        <div class="flex-row gap-8 flex-wrap">
+          <label for="viewType">View type: </label>
+          <mat-radio-group aria-label="View type" [(ngModel)]="viewType" data-test="viewTypeRadio">
+            <mat-radio-button value="card">Card</mat-radio-button>
+            <mat-radio-button value="list">List</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="flex-row">
+  @if (serverFilteredSupplies()) {
+  <div class="flex-1">
+    <!-- Switch between card and list view based on the viewType variable, set above in the mar-radio-group -->
+    <div>
+      @switch (viewType()) {
+      <!-- Card grid view -->
+      @case ('card') {
+      <div class="supply-cards-container flex-row gap-8 flex-wrap">
+        @for (supply of filteredSupplies(); track supply._id) {
+        <app-supply-card [simple]="true" class="supply-card" [supply]="supply"></app-supply-card>
+        }
+      </div>
+      }
+      <!-- List view -->
+      @case ('list') {
+      <mat-card>
+        <mat-card-content>
+          <mat-nav-list class="supply-nav-list">
+            <h3 mat-subheader>Supplies</h3>
+            @for (supply of filteredSupplies(); track supply._id) {
+            <a mat-list-item [routerLink]="['/supplies', supply._id]" class="supply-list-item">
+              <span matListItemTitle mat-line class="supply-list-name"> {{supply.description}} </span>
+              <span matListItemLine class="supply-list-item"> {{supply.item}} </span>
+            </a>
+            }
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+      }
+      }
+    </div>
+  </div>
+  } @else {
+  <div class="flex-1" class="supply-error">
+    <mat-error>
+      There was a problem loading the supply requests. Possibly the server is down or perhaps there are network
+      issues.
+    </mat-error>
+    <mat-error>
+      Please wait a bit and try again or start the server.
+    </mat-error>
+  </div>
+  }
+
+  <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
+
+</div>
+
+<button mat-fab class="add-supply-fab" matTooltip="Add Supply" matTooltipPosition="left" routerLink="/supplies/new"
+  data-test="addSupplyButton">
+  <mat-icon class="md-24" aria-label="Add Supply">add</mat-icon>
+</button>

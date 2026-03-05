@@ -1,0 +1,39 @@
+@if (supply()) {
+  <mat-card class="supply-card">
+    <mat-card-header>
+      <!-- @if (supply().avatar) {
+        <img mat-card-avatar [src]="supply().avatar" alt="Avatar for {{supply().name}}" class="supply-avatar"> -->
+      <!-- } -->
+      <mat-card-title class="supply-card-descrition">{{ supply().description }}</mat-card-title>
+      <mat-card-subtitle class="supply-card-school">{{ supply().school }}</mat-card-subtitle>
+    </mat-card-header>
+    @if (!simple()) {
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>dataset</mat-icon>
+            <!--
+            We had to put both the `role` and `age` entries on a single line. Otherwise
+            we got an annoying leading space in front of the values.
+            -->
+          </mat-list-item>
+          <mat-divider [inset]=true></mat-divider>
+          <mat-list-item>
+            <mat-icon matListItemIcon>schedule</mat-icon>
+            <p matListItemTitle>Quantity</p>
+            <p matListItemLine class="supply-card-quantity">{{ supply().quantity }}</p>
+          </mat-list-item>
+          <mat-divider [inset]=true></mat-divider>
+          <mat-list-item>
+
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    }
+    @if (simple()) {
+      <mat-card-actions>
+        <button mat-button data-test="viewProfileButton" [routerLink]="['/supplies', supply()._id]">View Profile</button>
+      </mat-card-actions>
+    }
+  </mat-card>
+}
