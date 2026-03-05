@@ -46,7 +46,7 @@ export class InventoryService {
    *  from the server after a possibly substantial delay (because we're
    *  contacting a remote server over the Internet).
    */
-  getUsers(filters?: { item?: string; quantity?: number; properties?: string }): Observable<Inventory[]> {
+  getInventory(filters?: { item?: string; quantity?: number; properties?: string }): Observable<Inventory[]> {
     // `HttpParams` is essentially just a map used to hold key-value
     // pairs that are then encoded as "?key1=value1&key2=value2&…" in
     // the URL when we make the call to `.get()` below.

@@ -52,7 +52,7 @@
 </div>
 
 <div class="flex-row">
-  @if (serverFilteredSupplies()) {
+  @if (serverFilteredInventories()) {
   <div class="flex-1">
     <!-- Switch between card and list view based on the viewType variable, set above in the mar-radio-group -->
     <div>
@@ -60,7 +60,7 @@
       <!-- Card grid view -->
       @case ('card') {
       <div class="inventory-cards-container flex-row gap-8 flex-wrap">
-        @for (inventory of filteredSupplies(); track inventory._id) {
+        @for (inventory of filteredInventories(); track inventory._id) {
         <app-inventory-card [simple]="true" class="inventory-card" [inventory]="inventory"></app-inventory-card>
         }
       </div>
@@ -71,9 +71,9 @@
         <mat-card-content>
           <mat-nav-list class="inventory-nav-list">
             <h3 mat-subheader>Supplies</h3>
-            @for (inventory of filteredSupplies(); track inventory._id) {
+            @for (inventory of filteredInventories(); track inventory._id) {
             <a mat-list-item [routerLink]="['/supplies', inventory._id]" class="inventory-list-item">
-              <span matListItemTitle mat-line class="inventory-list-name"> {{inventory.description}} </span>
+              <span matListItemTitle mat-line class="inventory-list-name"> {{inventory.properties}} </span>
               <span matListItemLine class="inventory-list-item"> {{inventory.item}} </span>
             </a>
             }

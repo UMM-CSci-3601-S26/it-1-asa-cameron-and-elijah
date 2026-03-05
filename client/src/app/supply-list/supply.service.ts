@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import {Supply} from './supply'
+import {Supply} from './supply';
 /**
  * Service that provides the interfaclient/src/app/users/user-profile.component.html client/src/app/users/user-profile.component.scss client/src/app/users/user-profile.component.spec.ts client/src/app/users/user-profile.component.tsce for getting information
  * about `Users` from the server.
@@ -29,7 +29,7 @@ export class SupplyService {
   private readonly ITEM_KEY = 'item';
   private readonly QUANTITY_KEY = 'quantity';
   private readonly SCHOOL_KEY = 'school';
-  private readonly GARDE_KEY = 'grade'
+  private readonly GARDE_KEY = 'grade';
 
   /**
    * Get all the users from the server, filtered by the information
@@ -48,7 +48,7 @@ export class SupplyService {
    *  from the server after a possibly substantial delay (because we're
    *  contacting a remote server over the Internet).
    */
-  getUsers(filters?: { item?: string; quantity?: number; school?: string; grade?: string }): Observable<Supply[]> {
+  getSupplies(filters?: { item?: string; quantity?: number; school?: string; grade?: string }): Observable<Supply[]> {
     // `HttpParams` is essentially just a map used to hold key-value
     // pairs that are then encoded as "?key1=value1&key2=value2&…" in
     // the URL when we make the call to `.get()` below.

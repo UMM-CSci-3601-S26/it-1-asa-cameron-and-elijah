@@ -86,7 +86,7 @@ export class InventoryListComponent {
         // them as arguments to `userService.getUsers()`, which then returns a new observable that contains the
         // results.
         switchMap(([item, quantity]) =>
-          this.inventoryService.getInventories({
+          this.inventoryService.getInventory({
             item,
             quantity,
           })
