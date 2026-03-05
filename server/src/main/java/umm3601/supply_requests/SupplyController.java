@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -187,7 +187,7 @@ public class SupplyController implements Controller {
    *   (in either `asc` or `desc` order) or by the number of supplies in the
    *   company (`count`, also in either `asc` or `desc` order).
    */
-  public void getSuppliesGroupedByCompany(Context ctx) {
+  /*public void getSuppliesGroupedByCompany(Context ctx) {
     // We'll support sorting the results either by company description (in either `asc` or `desc` order)
     // or by the number of supplies in the company (`count`, also in either `asc` or `desc` order).
     String sortBy = Objects.requireNonNullElse(ctx.queryParam("sortBy"), "_id");
@@ -196,7 +196,7 @@ public class SupplyController implements Controller {
     }
     String sortOrder = Objects.requireNonNullElse(ctx.queryParam("sortOrder"), "asc");
     Bson sortingOrder = sortOrder.equals("desc") ?  Sorts.descending(sortBy) : Sorts.ascending(sortBy);
-  }
+  }*/
 
     // The `SupplyByCompany` class is a simple class that has fields for the company
     // description, the number of supplies in that company, and a list of supply descriptions and IDs
